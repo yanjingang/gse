@@ -16,7 +16,7 @@
 package gse
 
 import (
-	"github.com/go-ego/cedar"
+	"github.com/yanjingang/cedar"
 )
 
 // Dictionary 结构体实现了一个字串前缀树，

@@ -1,47 +1,46 @@
-# gse
+# [gse](https://github.com/yanjingang/gse)
 
-Go efficient text segmentation; support english, chinese, japanese and other.
+Go 语言高效分词, 支持英文、中文、日文等
 
-<!--<img align="right" src="https://raw.githubusercontent.com/go-ego/ego/master/logo.jpg">-->
-<!--<a href="https://circleci.com/gh/go-ego/ego/tree/dev"><img src="https://img.shields.io/circleci/project/go-ego/ego/dev.svg" alt="Build Status"></a>-->
-[![CircleCI Status](https://circleci.com/gh/go-ego/gse.svg?style=shield)](https://circleci.com/gh/go-ego/gse)
-[![codecov](https://codecov.io/gh/go-ego/gse/branch/master/graph/badge.svg)](https://codecov.io/gh/go-ego/gse)
-[![Build Status](https://travis-ci.org/go-ego/gse.svg)](https://travis-ci.org/go-ego/gse)
-[![Go Report Card](https://goreportcard.com/badge/github.com/go-ego/gse)](https://goreportcard.com/report/github.com/go-ego/gse)
-[![GoDoc](https://godoc.org/github.com/go-ego/gse?status.svg)](https://godoc.org/github.com/go-ego/gse)
-[![GitHub release](https://img.shields.io/github/release/go-ego/gse.svg)](https://github.com/go-ego/gse/releases/latest)
-[![Join the chat at https://gitter.im/go-ego/ego](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/go-ego/ego?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-<!-- [![Release](https://github-release-version.herokuapp.com/github/go-ego/gse/release.svg?style=flat)](https://github.com/go-ego/gse/releases/latest) -->
-<!--<a href="https://github.com/go-ego/ego/releases"><img src="https://img.shields.io/badge/%20version%20-%206.0.0%20-blue.svg?style=flat-square" alt="Releases"></a>-->
+<!--<img align="right" src="https://raw.githubusercontent.com/yanjingang/ego/master/logo.jpg">-->
+<!--<a href="https://circleci.com/gh/yanjingang/ego/tree/dev"><img src="https://img.shields.io/circleci/project/yanjingang/ego/dev.svg" alt="Build Status"></a>-->
+[![CircleCI Status](https://circleci.com/gh/yanjingang/gse.svg?style=shield)](https://circleci.com/gh/yanjingang/gse)
+[![codecov](https://codecov.io/gh/yanjingang/gse/branch/master/graph/badge.svg)](https://codecov.io/gh/yanjingang/gse)
+[![Build Status](https://travis-ci.org/yanjingang/gse.svg)](https://travis-ci.org/yanjingang/gse)
+[![Go Report Card](https://goreportcard.com/badge/github.com/yanjingang/gse)](https://goreportcard.com/report/github.com/yanjingang/gse)
+[![GoDoc](https://godoc.org/github.com/yanjingang/gse?status.svg)](https://godoc.org/github.com/yanjingang/gse)
+[![GitHub release](https://img.shields.io/github/release/yanjingang/gse.svg)](https://github.com/yanjingang/gse/releases/latest)
+[![Join the chat at https://gitter.im/yanjingang/ego](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/yanjingang/ego?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+<!--<a href="https://github.com/yanjingang/ego/releases"><img src="https://img.shields.io/badge/%20version%20-%206.0.0%20-blue.svg?style=flat-square" alt="Releases"></a>-->
 
-[简体中文](https://github.com/go-ego/gse/blob/master/README_zh.md)
+<a href="https://github.com/yanjingang/gse/blob/master/dictionary.go">词典</a>用双数组 trie（Double-Array Trie）实现，
+<a href="https://github.com/yanjingang/gse/blob/master/segmenter.go">分词器</a>算法为基于词频的最短路径加动态规划, 以及 DAG 和 HMM 算法分词.
 
-<a href="https://github.com/go-ego/gse/blob/master/dictionary.go">Dictionary </a> with double array trie (Double-Array Trie) to achieve,
-<a href="https://github.com/go-ego/gse/blob/master/segmenter.go">Sender </a> algorithm is the shortest path based on word frequency plus dynamic programming, and DAG and HMM algorithm word segmentation.
+支持 HMM 分词, 使用 viterbi 算法.
 
-Support common, search engine, full mode, precise mode and HMM mode multiple word segmentation modes, support user dictionary, POS tagging, run<a href="https://github.com/go-ego/gse/blob/master/server/server.go"> JSON RPC service</a>.
+支持普通、搜索引擎、全模式、精确模式和 HMM 模式多种分词模式，支持用户词典、词性标注，可运行<a href="https://github.com/yanjingang/gse/blob/master/server/server.go"> JSON RPC 服务</a>。
 
-Support HMM cut text use Viterbi algorithm.
+分词速度<a href="https://github.com/yanjingang/gse/blob/master/benchmark/benchmark.go">单线程</a> 9.2MB/s，<a href="https://github.com/yanjingang/gse/blob/master/benchmark/goroutines/goroutines.go">goroutines 并发</a> 26.8MB/s. HMM 模式单线程分词速度 3.2MB/s.（ 双核4线程 Macbook Pro）。
 
-Text Segmentation speed<a href="https://github.com/go-ego/gse/blob/master/benchmark/benchmark.go"> single thread</a> 9.2MB/s，<a href="https://github.com/go-ego/gse/blob/master/benchmark/goroutines/goroutines.go">goroutines concurrent</a> 26.8MB/s. HMM text segmentation single thread 3.2MB/s. (2core 4threads Macbook Pro).
+QQ 讨论群: 120563750 (仅用于讨论)
 
 ## Binding:
 
 [gse-bind](https://github.com/vcaesar/gse-bind), binding JavaScript and other, support more language.
 
-## Install / update
+## 安装/更新
 
 ```
-go get -u github.com/go-ego/gse
+go get -u github.com/yanjingang/gse
 ```
 
-## [Build-tools](https://github.com/go-ego/re)
+## [Build-tools](https://github.com/yanjingang/re)
 ```
-go get -u github.com/go-ego/re
+go get -u github.com/yanjingang/re
 ```
 
 ### re gse
-To create a new gse application
+创建一个新的 gse 程序
 
 ```
 $ re gse my-gse
@@ -49,12 +48,12 @@ $ re gse my-gse
 
 ### re run
 
-To run the application we just created, you can navigate to the application folder and execute:
+运行我们刚刚创建的应用程序, CD 到程序文件夹并执行:
 ```
 $ cd my-gse && re run
 ```
 
-## Use
+## 使用
 
 ```go
 package main
@@ -62,16 +61,14 @@ package main
 import (
 	"fmt"
 
-	"github.com/go-ego/gse"
+	"github.com/yanjingang/gse"
 )
 
-var (
-	text = "你好世界, Hello world."
-
-	seg gse.Segmenter
-)
+var seg gse.Segmenter
 
 func cut() {
+	text := "你好世界, Hello world."
+
 	hmm := seg.Cut(text, true)
 	fmt.Println("cut use hmm: ", hmm)
 
@@ -83,49 +80,53 @@ func cut() {
 }
 
 func segCut() {
-	// Text Segmentation
-	tb := []byte(text)
-	fmt.Println(seg.String(tb, true))
+	// 分词文本
+	tb := []byte("山达尔星联邦共和国联邦政府")
+
+	// 处理分词结果
+	// 支持普通模式和搜索模式两种分词，见代码中 ToString 函数的注释。
+	// 搜索模式主要用于给搜索引擎提供尽可能多的关键字
+	fmt.Println("输出分词结果, 类型为字符串, 使用搜索模式: ", seg.String(tb, true))
+	fmt.Println("输出分词结果, 类型为 slice: ", seg.Slice(tb))
 
 	segments := seg.Segment(tb)
+	// 处理分词结果
+	fmt.Println(gse.ToString(segments))
 
-	// Handle word segmentation results
-	// Support for normal mode and search mode two participle,
-	// see the comments in the code ToString function.
-	// The search mode is mainly used to provide search engines
-	// with as many keywords as possible
-	fmt.Println(gse.ToString(segments, true))
+	text1 := []byte("上海地标建筑, 东方明珠电视台塔上海中心大厦")
+	segments1 := seg.Segment([]byte(text1))
+	fmt.Println(gse.ToString(segments1, true))
 }
 
 func main() {
-	// Loading the default dictionary
+	// 加载默认字典
 	seg.LoadDict()
-	// Load the dictionary
-	// seg.LoadDict("your gopath"+"/src/github.com/go-ego/gse/data/dict/dictionary.txt")
+	// 载入词典
+	// seg.LoadDict("your gopath"+"/src/github.com/yanjingang/gse/data/dict/dictionary.txt")
 
 	cut()
 
 	segCut()
 }
-
 ```
 
-[Look at an custom dictionary example](/examples/dict/main.go)
+[自定义词典分词示例](/examples/dict/main.go)
 
 ```Go
+
 package main
 
 import (
 	"fmt"
 
-	"github.com/go-ego/gse"
+	"github.com/yanjingang/gse"
 )
 
 func main() {
 	var seg gse.Segmenter
 	seg.LoadDict("zh,testdata/test_dict.txt,testdata/test_dict1.txt")
 
-	text1 := []byte("你好世界, Hello world")
+	text1 := []byte("所以, 你好, 再见")
 	fmt.Println(seg.String(text1, true))
 
 	segments := seg.Segment(text1)
@@ -133,14 +134,14 @@ func main() {
 }
 ```
 
-[Look at an Chinese example](https://github.com/go-ego/gse/blob/master/examples/example.go)
+[中文分词示例](/examples/example.go)
 
-[Look at an Japanese example](https://github.com/go-ego/gse/blob/master/examples/jp/main.go)
+[日文分词示例](/examples/jp/main.go)
 
 ## Authors
 * [The author is vz](https://github.com/vcaesar)
-* [Maintainers](https://github.com/orgs/go-ego/people)
-* [Contributors](https://github.com/go-ego/gse/graphs/contributors)
+* [Maintainers](https://github.com/orgs/yanjingang/people)
+* [Contributors](https://github.com/yanjingang/gse/graphs/contributors)
 
 ## License
 

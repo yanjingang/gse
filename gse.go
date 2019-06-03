@@ -19,7 +19,7 @@ Package gse Go efficient text segmentation, Go 语言高性能分词
 package gse
 
 import (
-	"github.com/go-ego/gse/hmm"
+	"github.com/yanjingang/gse/hmm"
 )
 
 const (

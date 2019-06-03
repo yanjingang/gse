@@ -1,1 +1,1 @@
-module github.com/go-ego/cedar
+module github.com/yanjingang/cedar
