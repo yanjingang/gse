@@ -1,4 +1,4 @@
-module github.com/go-ego/gse
+module github.com/yanjingang/gse
 
 require (
 	github.com/go-ego/cedar v0.0.0-20190318172318-7949cd3f793f
